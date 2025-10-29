@@ -1,0 +1,13 @@
+name: test-react-deployment
+build:
+  command: npm run build
+  output_location: build
+routes:
+  - route: /*
+    serve: /build/index.html
+    statusCode: 200
+triggers:
+  - type: http
+    paths:
+      - api/*
+    noCache: true
